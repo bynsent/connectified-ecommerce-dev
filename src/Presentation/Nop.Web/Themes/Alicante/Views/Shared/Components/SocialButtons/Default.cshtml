@@ -1,0 +1,43 @@
+﻿@using Nop.Core
+@using Nop.Core.Infrastructure
+@using Nop.Services.Configuration
+
+@model SocialModel
+
+@{
+    var storeId = (await EngineContext.Current.Resolve<IStoreContext>().GetCurrentStoreAsync()).Id;
+    var pinterestUrl = await EngineContext.Current.Resolve<ISettingService>().GetSettingByKeyAsync("alicantethemesettings.pinteresturl", String.Empty, storeId, true);
+    var vimeoUrl = await EngineContext.Current.Resolve<ISettingService>().GetSettingByKeyAsync("alicantethemesettings.vimeourl", String.Empty, storeId, true);
+    var instagramUrl = await EngineContext.Current.Resolve<ISettingService>().GetSettingByKeyAsync("alicantethemesettings.instagramurl", String.Empty, storeId, true);
+}
+
+<ul>
+    @if (!String.IsNullOrEmpty(Model.FacebookLink))
+    {
+        <li><a target="_blank" class="facebook" href="@Model.FacebookLink" rel="noopener noreferrer" aria-label="@T("Footer.FollowUs.Facebook")"></a></li>
+    }
+    @if (!String.IsNullOrEmpty(Model.TwitterLink))
+    {
+        <li><a target="_blank" class="twitter" href="@Model.TwitterLink" rel="noopener noreferrer" aria-label="@T("Footer.FollowUs.Twitter")"></a></li>
+    }
+    @if (!String.IsNullOrEmpty(pinterestUrl))
+    {
+        <li><a target="_blank" class="pinterest" href="@pinterestUrl" rel="noopener noreferrer" aria-label="@T("SevenSpikes.Themes.Common.Footer.FollowUs.Pinterest")"></a></li>
+    }
+    @if (!String.IsNullOrEmpty(vimeoUrl))
+    {
+        <li><a target="_blank" class="vimeo" href="@vimeoUrl" rel="noopener noreferrer" aria-label="@T("SevenSpikes.Themes.Common.Footer.FollowUs.Vimeo")"></a></li>
+    }
+    @if (!String.IsNullOrEmpty(instagramUrl))
+    {
+        <li><a target="_blank" class="instagram" href="@instagramUrl" rel="noopener noreferrer" aria-label="@T("SevenSpikes.Themes.Common.Footer.FollowUs.Instagram")"></a></li>
+    }
+    @if (!String.IsNullOrEmpty(Model.YoutubeLink))
+    {
+        <li><a target="_blank" class="youtube" href="@Model.YoutubeLink" rel="noopener noreferrer" aria-label="@T("Footer.FollowUs.Youtube")"></a></li>
+    }
+    @if (Model.NewsEnabled)
+    {
+        <li><a class="rss" href="@Url.RouteUrl("NewsRSS", new {languageId = Model.WorkingLanguageId})" aria-label="@T("Footer.FollowUs.RSS")"></a></li>
+    }
+</ul>

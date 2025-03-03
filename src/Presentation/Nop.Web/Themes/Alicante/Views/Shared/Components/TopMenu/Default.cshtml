@@ -1,0 +1,94 @@
+﻿@model TopMenuModel
+@inject IThemeContext themeContext
+
+@{
+    var isRtl = await Html.ShouldUseRtlThemeAsync();
+}
+<input type="hidden" value="@isRtl.ToString().ToLowerInvariant()" id="isRtlEnabled" />
+
+<div class="menu-title">
+    <span>@T($"SevenSpikes.Themes.{await themeContext.GetWorkingThemeNameAsync()}.Common.MenuTitle")</span>
+</div>
+<ul class="top-menu">
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore, additionalData = Model })
+    @if (Model.DisplayHomepageMenuItem)
+    {
+        <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>
+    }
+    @{
+        var rootCategories = Model.Categories.Where(x => x.IncludeInTopMenu).ToList();
+    }
+    @foreach (var category in rootCategories)
+    {
+        var categoryLineModel = new TopMenuModel.CategoryLineModel
+        {
+            Category = category
+        };
+        @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+    }
+
+    @if (Model.Manufacturers.Count > 0)
+    {
+        <li>
+            <a href="@Url.RouteUrl("ManufacturerList")">@T("Shop By Brands")</a>
+        <div class="plus-button"></div>
+        <div class="sublist-wrap">
+            <ul class="sublist">
+                    @foreach (var manufacture in Model.Manufacturers)
+                {
+                    <li>
+                        <a href="@Url.RouteUrl("Manufacturer", new { SeName = manufacture.SeName })">@manufacture.Name</a>
+                    </li>
+                }
+               
+            </ul>
+        </div>
+        </li>
+    }
+    @foreach (var topic in Model.Topics)
+    {
+        <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+    }
+    @if (Model.NewProductsEnabled && Model.DisplayNewProductsMenuItem)
+    {
+        <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+    }
+    @if (Model.DisplayProductSearchMenuItem)
+    {
+        <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+    }
+    @if (Model.DisplayCustomerInfoMenuItem)
+    {
+        <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+    }
+    @if (Model.BlogEnabled && Model.DisplayBlogMenuItem)
+    {
+        <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+    }
+    @if (Model.ForumEnabled && Model.DisplayForumsMenuItem)
+    {
+        <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+    }
+    @if (Model.DisplayContactUsMenuItem)
+    {
+        <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+    }
+    @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuAfter, additionalData = Model })
+</ul>
+
+<script asp-location="Footer">
+
+    (function ($, ssCore) {
+        $(document).ready(function () {
+            ssCore.prepareTopMenu();
+        });
+
+        $(document).on('themeBreakpointPassed7Spikes', function (e) {
+            if (!e.isInitialLoad && !window.sevenSpikesTheme) {
+                ssCore.prepareTopMenu();
+            }
+        });
+
+    })(jQuery, sevenSpikesCore);
+
+</script>

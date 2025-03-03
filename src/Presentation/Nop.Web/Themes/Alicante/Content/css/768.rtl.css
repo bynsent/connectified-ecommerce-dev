@@ -1,0 +1,576 @@
+
+@media all and (min-width: 769px) {
+
+/* GLOBAL STYLES */
+
+.master-column-wrapper {
+	width: 95%;
+}
+.page {
+	text-align: right;
+}
+
+/* GLOBAL FORMS */
+
+.fieldset .title,
+.section .title {
+	padding: 0 5px 0 0;
+}
+.inputs input[type="text"],
+.inputs input[type="password"],
+.inputs input[type="email"],
+.inputs input[type="tel"],
+.inputs select, .inputs textarea {
+	width: 380px;	
+}
+.date-of-birth div {
+	width: 380px;
+}
+.inputs .option-list {
+	width: 380px;
+}
+
+/* HEADER & NAVIGATION */
+
+.header {
+	width: 95%;
+}
+.search-box {
+	display: inline-block;
+	width: 350px;
+	vertical-align: middle;
+}
+.header-selectors-wrapper {
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
+}
+.header-selects > div {
+	margin: 0 10px 0 0;
+}
+.header-selects select {
+	padding: 7px 25px 7px 5px;
+}
+
+/* FOOTER */
+
+.footer .center,
+.bottom .center {
+	width: 95%;
+}
+.bottom .center > div {
+	display: inline-block;
+}
+
+/* LEFT/RIGHT COLUMNS */
+
+.block {
+	width: 32%;
+}
+.block:nth-child(2n+1) {
+	clear: none;
+	margin-right: 2%;
+}
+.block:nth-child(3n+1) {
+	clear: both;
+	margin-right: 0;
+}
+
+/* CATEGORY PAGE */
+
+.product-selectors div {
+	width: auto;
+	margin: 0 0 0 15px;
+}
+.product-viewmode {
+	display: inline-block !important;
+}
+.product-viewmode select {
+	width: 100px;
+}
+
+.item-box {
+	width: 32%;
+}
+.item-box:nth-child(2n+1) {
+    clear: none;
+	margin-right: 2%;
+}
+.item-box:nth-child(3n+1) {
+    clear: both;
+	margin-right: 0;
+}
+.product-grid .title {
+    padding-right: 2px;
+}
+
+/* PRODUCT PAGE */
+
+.gallery {
+	float: right;
+	width: 40%;
+}
+.overview {
+	float: left;
+	width: 57.5%;
+}
+.overview .product-name {
+	margin-top: -10px;
+}
+.overview-buttons > div {
+	margin: 0 0 10px 3px;
+}
+.attributes dd {
+	min-width: 275px;
+}
+.overview .qty-label,
+.variant-overview .qty-label {
+	margin: 0 0 0 5px;
+}
+.product-variant-list {
+	max-width: none;
+}
+.variant-picture {
+	float: right;
+	width: 30%;
+	margin: 0;
+}
+.variant-overview {
+	float: left;
+	width: 67.5%;
+}
+.variant-overview dl {
+	display: block;
+}
+.giftcard > div {
+	margin: 12px 0;
+}
+.giftcard > div:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.giftcard label {
+	float: left;
+	width: 30%;
+	min-width: calc(100% - 425px);
+	padding: 0 10px 0 0;
+	text-align: right;
+	color: #666;
+}
+.giftcard input,
+.giftcard textarea {
+	float: right;
+	width: 70%;
+}
+
+/* PRODUCT REVIEWS */
+
+.product-review-item .review-item-head {
+	display: table;
+	width: 100%;
+	margin: 0 0 20px;
+}
+.product-review-item .review-title {
+	display: table-cell;
+	padding: 10px 15px;
+	text-align: right;
+	vertical-align: middle;
+}
+.product-review-item .product-review-box {
+	display: table-cell;
+	position: static;
+	padding: 10px 15px;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 0;
+}
+.product-review-item .review-content {
+	padding: 0 5px;
+}
+.product-review-item .review-text {
+	display: table;
+	width: 100%;
+}
+.product-review-item .avatar {
+	display: table-cell;
+	text-align: center;
+	vertical-align: top;;
+	line-height: normal;
+}
+.product-review-item .text-body {
+	display: table-cell;
+	vertical-align: top;
+}
+.product-review-item .avatar + .text-body {
+	padding-right: 20px;
+	padding-left: 0;
+}
+.product-review-item .avatar .review-info {
+	margin: 0 0 15px;
+}
+.product-review-item .review-info {
+	display: inline-block;
+	margin: 0;
+}
+.product-review-helpfulness {
+	display: inline-block;
+	margin-right: 20px;
+	margin-left: 0;
+}
+
+/* REGISTRATION, ACCOUNT */
+
+.gender {
+	width: 380px;
+}
+.date-of-birth select {
+	width: 120px;
+}
+.address-list-page .info,
+.order-list-page .info {
+	padding: 15px;
+}
+.address-list-page .buttons,
+.order-list-page .buttons {
+	position: absolute;
+	top: 50px;
+	left: 15px;
+	margin: 0;
+	border: none;
+	padding: 0;
+}
+
+/* SHOPPING CART */
+	
+.order-progress li {
+	width: 120px;
+	margin: 0;
+}
+.cart-options .common-buttons,
+.cart-options .checkout-attributes {
+	text-align: left;
+}
+.cart-options .common-buttons button,
+.cart-options .common-buttons a {
+	margin: 0 5px 0 0;
+}
+.cart-footer {
+	max-width: none;
+}
+.cart-footer .total-info {
+	min-height: 130px;
+}
+.cart-total-left {
+	text-align: right;
+}
+.cart-total-right {
+	text-align: left;
+}
+.cart-collaterals {
+	float: right;
+	width: 49%;
+}
+.cart-footer .deals,
+.cart-footer .shipping {
+	margin-bottom: 0;
+	/*background-color: #f6f6f6;*/
+	padding: 10px 15px;
+}
+.cart-collaterals > div + div {
+	margin-top: 20px;
+}
+.cart-footer .coupon-code {
+	max-width: 380px;
+	margin: 12px 0;
+}
+.cart-footer .shipping .inputs {
+	margin: 12px 0;
+}
+.cart-footer .shipping label {
+	text-align: right;
+}
+.cart-footer .shipping .buttons {
+	max-width: 380px;
+	margin: auto;
+	text-align: left;
+}
+.cart-footer .totals {
+	float: left;
+	width: 49%;
+}
+.terms-of-service,
+.checkout-buttons,
+.addon-buttons {
+	text-align: center;
+}
+
+/* CHECKOUT PAGES */
+
+.checkout-page
+.selected-checkout-attributes {
+	text-align: left;
+}
+.checkout-page .address-item {
+	float: right;
+	width: 50%;
+	margin: 0;
+	padding: 10px;
+}
+.checkout-page .address-item:nth-child(4n+1) {
+	clear: both;
+}
+.checkout-page .address-item:only-child {
+	float: none;
+	width: auto;
+	margin: 0;
+}
+.checkout-page .pickup-in-store .selector,
+.checkout-page .pickup-in-store .description {
+	display: inline-block;
+	margin: 0 0 0 10px;
+	vertical-align: middle;
+}
+.pickup-in-store .selector {
+	position: relative;
+	bottom: 1px;
+}
+.pickup-in-store .description:before {
+	content: "(";
+}
+.pickup-in-store .description:after {
+	content: ")";
+}
+.payment-info .info td {
+    display: table-cell;
+    width: auto;
+	padding: 5px 10px !important;
+}
+.payment-info .info td:first-child {
+	width: 130px;
+}
+.payment-info .info tr:first-child td {
+	padding-top: 10px !important;
+}
+.payment-info .info tr:last-child td {
+	padding-bottom: 10px !important;
+}
+.payment-info .info tr:only-child td {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.payment-info #CreditCardType {
+	margin: 3px 0 5px;
+}
+.payment-info #CardCode {
+	margin: 5px 0 -10px;
+}
+.payment-info #PurchaseOrderNumber {
+	display: block;
+	min-width: 300px;
+	margin: -10px auto 0;
+}
+
+.opc .payment-info .info td {
+    display: block;
+    width: auto;
+	padding: 5px 10px !important;
+}
+.opc .payment-info .info td:first-child,
+.opc .payment-info .info td:last-child {
+	padding: 5px 10px !important;
+}
+.opc .payment-info #CreditCardType,
+.opc .payment-info #CardCode {
+	margin: 0;
+}
+.opc #checkout-step-confirm-order .buttons,
+.opc #checkout-step-confirm-order .terms-of-service {
+	width: 49%;
+	margin-right: auto;
+	text-align: left;
+}
+
+/* ORDER DETAILS, RETURN REQUESTS */
+
+.order-details-page .page-title h1 {
+	float: right;
+	margin: 0;
+	line-height: 28px;
+}
+.order-details-page .page-title a {
+	float: left;
+	min-width: 60px;
+	margin: 0 5px 0 0;
+}
+.order-details-area,
+.shipment-details-area {
+	padding: 0 5px;
+}
+.order-details-page .tax-shipping-info,
+.order-details-page .selected-checkout-attributes {
+	text-align: left;
+}
+.order-details-page .totals {
+	float: left;
+	width: 49%;
+	max-width: 380px;
+}
+.order-details-page .actions {
+	text-align: left;
+}
+.order-details-page .actions button {
+	min-width: 170px;
+}
+.return-request-file > div {
+	width: 380px;
+}
+
+/* BLOG & NEWS */
+
+.news-list-page .buttons,
+.news-list-homepage .buttons {
+	text-align: left;
+}
+.news-list-homepage .view-all {
+	text-align: left;
+}
+
+/* FORUM & PROFILE */
+
+.forums-header:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.forums-header .current-time {
+	float: right;
+	line-height: 32px;
+}
+.forums-header .forum-search-box {
+	float: left;
+	margin: 0;
+}
+.forum-search-box form {
+	min-width: 300px;
+}
+.forum-search-box .advanced {
+	text-align: left;
+}
+.forums-table-section .view-all {
+	text-align: left;
+}
+
+.pager.lower {
+	text-align: left;
+}
+.topic-post .post-info {
+	float: right;
+	width: 180px;
+	margin: 0;
+}
+.topic-post .post-content {
+	float: left;
+	width: calc(100% - 200px);
+}
+.topic-post .post-head {
+	margin: 0 0 20px;
+	border: 1px solid #bbb;
+	background-color: #ddd;
+	padding: 5px 10px;
+}
+.topic-post .post-actions {
+	border: none;
+	padding: 0;
+}
+.topic-post .post-time {
+	float: right;
+	margin: 0;
+}
+.topic-post .post-actions {
+	float: left;
+	margin: 0;
+	background-color: transparent;
+	padding: 0;
+}
+
+.forum-edit-page .inputs strong {
+	width: 380px;
+}
+.forum-edit-page .toolbar,
+.private-message-send-page .toolbar {
+	width: 380px;
+}
+.forum-edit-page .inputs.reversed label,
+.private-message-send-page .inputs.reversed label {
+	display: inline-block;
+	padding: 0 5px 0 0;
+	vertical-align: middle;
+}
+	
+.profile-info-box .avatar {
+	float: right;
+	width: 200px;
+	margin: 0;
+	border-color: #ddd;
+}
+.profile-info-box .profile-stats {
+	float: left;
+	width: calc(100% - 212px);
+}
+.profile-info-box .title {
+    padding: 5px 0 0;
+}
+.profile-info-box .send-pm {
+	float: left;
+	width: calc(100% - 212px);
+	margin: 0;
+}
+.private-message-view-page .page-body {
+	padding: 0 5px;
+}
+.private-message-view-page .back-pm-button {
+	display: inline-block !important;
+	float: left;
+}
+
+}
+
+
+
+@media all and (min-width: 880px) {
+
+.footer-upper {
+	margin: 0;
+}
+.footer-block {
+	clear: none !important;
+    width: 23.5%;
+    margin-right: 2% !important;
+}
+.footer-block:first-child {
+	margin-right: 0 !important;
+}
+.footer-lower {
+	border: none;
+}
+.footer-lower h3 {
+	text-align: right;
+}
+.accepted-payment-methods {
+	display: block;
+	float: right;
+	margin: 0 !important;
+}
+.social-sharing {
+	float: left;
+	margin: 0 !important;
+}
+.subscribe-to-newsletter {
+	width: 250px;
+	margin: auto !important;
+	text-align: right;
+}
+
+}

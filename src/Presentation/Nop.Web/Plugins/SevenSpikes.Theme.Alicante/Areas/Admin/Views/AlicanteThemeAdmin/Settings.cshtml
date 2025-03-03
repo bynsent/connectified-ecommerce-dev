@@ -1,0 +1,128 @@
+﻿@model AlicanteThemeSettingsModel
+
+@{
+    Layout = AdminViewLocations.AdminLayoutViewPath;
+
+    NopHtml.SetActiveMenuItemSystemName("SevenSpikes.Themes.Admin.SettingsSubmenu.Alicante");
+}
+
+<link rel="stylesheet" href="~/Plugins/SevenSpikes.Core/Areas/Admin/Content/Styles/adminstyles.css" />
+
+<form method="post">
+    <nop-antiforgery-token />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#@Html.IdFor(model => model.LogoImageId_OverrideForStore)").change(logoOverrideChanged);
+
+            $('.store-scope-configuration .checkbox input').change(function () {
+                logoOverrideChanged();
+            });
+
+            logoOverrideChanged();
+        });
+
+        function logoOverrideChanged() {
+            if ($('#@Html.IdFor(model => model.LogoImageId_OverrideForStore)').length == 0) {
+                return;
+            }
+
+            if ($('#@Html.IdFor(model => model.LogoImageId_OverrideForStore)').is(':checked') == true) {
+                $(".upload-image-overlay").remove();
+            } else {
+                $('#logo-image').append("<div class=\"upload-image-overlay\"></div>");
+            }
+        }
+    </script>
+
+    <div class="content-header clearfix">
+        <h1 class="float-left">
+            @T("SevenSpikes.Themes.Alicante.Admin.Settings")
+        </h1>
+        <div class="float-right">
+            @await Html.PartialAsync(AdminViewLocations.AdminResetDefaultSettingsViewPath, Plugin.FolderName)
+            <button type="submit" name="save" class="btn bg-blue">
+                <i class="far fa-save"></i>
+                @T("Admin.Common.Save")
+            </button>
+        </div>
+    </div>
+
+    <section class="content">
+        <div class="form-horizontal">
+            @await Component.InvokeAsync("StoreScopeConfiguration")
+            <div class="cards-default">
+                <div class="card card-default">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <nop-override-store-checkbox asp-for="PinterestUrl_OverrideForStore" asp-input="PinterestUrl" asp-store-scope="Model.ActiveStoreScopeConfiguration" />
+                                <nop-label asp-for="PinterestUrl" />
+                            </div>
+                            <div class="col-md-9">
+                                <nop-editor asp-for="PinterestUrl" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <nop-override-store-checkbox asp-for="VimeoUrl_OverrideForStore" asp-input="VimeoUrl" asp-store-scope="Model.ActiveStoreScopeConfiguration" />
+                                <nop-label asp-for="VimeoUrl" />
+                            </div>
+                            <div class="col-md-9">
+                                <nop-editor asp-for="VimeoUrl" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <nop-override-store-checkbox asp-for="InstagramUrl_OverrideForStore" asp-input="InstagramUrl" asp-store-scope="Model.ActiveStoreScopeConfiguration" />
+                                <nop-label asp-for="InstagramUrl" />
+                            </div>
+                            <div class="col-md-9">
+                                <nop-editor asp-for="InstagramUrl" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <nop-override-store-checkbox asp-for="RemoveCopyright_OverrideForStore" asp-input="RemoveCopyright" asp-store-scope="Model.ActiveStoreScopeConfiguration" />
+                                <nop-label asp-for="RemoveCopyright" />
+                            </div>
+                            <div class="col-md-9">
+                                <nop-editor asp-for="RemoveCopyright" />
+                                <p><em>@T("SevenSpikes.Themes.Admin.Settings.RemoveCopyright.Hint.Link")</em></p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <nop-override-store-checkbox asp-for="RemoveDesignedBy_OverrideForStore" asp-input="RemoveDesignedBy" asp-store-scope="Model.ActiveStoreScopeConfiguration" />
+                                <nop-label asp-for="RemoveDesignedBy" />
+                            </div>
+                            <div class="col-md-9">
+                                <nop-editor asp-for="RemoveDesignedBy" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <nop-override-store-checkbox asp-for="LogoImageId_OverrideForStore" asp-input="LogoImageId" asp-store-scope="Model.ActiveStoreScopeConfiguration" />
+                                <nop-label asp-for="LogoImageId" />
+                            </div>
+                            <div class="col-md-9">
+                                <div id="logo-image">
+                                    <nop-editor asp-for="LogoImageId" />
+                                    <span asp-validation-for="LogoImageId"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <nop-override-store-checkbox asp-for="CustomHeadStyles_OverrideForStore" asp-input="CustomHeadStyles" asp-store-scope="Model.ActiveStoreScopeConfiguration" />
+                                <nop-label asp-for="CustomHeadStyles" />
+                            </div>
+                            <div class="col-md-9">
+                                <nop-textarea asp-for="CustomHeadStyles" style="height: 450px"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

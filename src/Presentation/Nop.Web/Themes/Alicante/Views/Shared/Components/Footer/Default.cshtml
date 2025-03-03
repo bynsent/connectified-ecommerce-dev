@@ -1,0 +1,150 @@
+﻿@using Nop.Core
+@using Nop.Core.Domain.Tax
+@using Nop.Services.Configuration
+
+@inject IStoreContext storeContext
+@inject IWorkContext workContext
+@inject ISettingService settingService
+
+@model FooterModel
+
+@{
+    var storeId = (await storeContext.GetCurrentStoreAsync()).Id;
+    var removeCopyright = await settingService.GetSettingByKeyAsync("alicantethemesettings.removecopyright", false, storeId, true);
+    var removeDesignedBy = await settingService.GetSettingByKeyAsync("alicantethemesettings.removedesignedby", false, storeId, true);
+}
+
+<div class="footer">
+    <div class="footer-upper">
+        <div class="center">
+            <div class="footer-block footer-block-first">
+                <h3>@T("SevenSpikes.Themes.Alicante.Common.ConnectWithUs")</h3>
+                <ul class="footer-menu">
+                    <li class="phone">@T("SevenSpikes.Themes.Alicante.Common.Phone")</li>
+                    <li class="email">@T("SevenSpikes.Themes.Alicante.Common.EmailName")@T("SevenSpikes.Themes.Alicante.Common.EmailAt")@T("SevenSpikes.Themes.Alicante.Common.EmailDomain")</li>
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h3>@T("SevenSpikes.Themes.Alicante.Common.CustomerServices")</h3>
+                <ul class="footer-menu">
+                    @if (Model.DisplayContactUsFooterItem)
+	                {
+	                    <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+	                }
+                    @if (Model.SitemapEnabled && Model.DisplaySitemapFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("Sitemap")">@T("Sitemap")</a></li>
+                    }
+                    @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn1).ToList())
+                    {
+                        <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+                    }
+                    @if (Model.AllowCustomersToApplyForVendorAccount && Model.DisplayApplyVendorAccountFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("ApplyVendorAccount")">@T("Vendors.ApplyAccount")</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h3>@T("Account.MyAccount")</h3>
+                <ul class="footer-menu">
+                    @if (Model.DisplayCustomerInfoFooterItem)
+	                {
+	                    <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a></li>
+	                }
+	                @if (Model.DisplayCustomerOrdersFooterItem)
+	                {
+	                    <li><a href="@Url.RouteUrl("CustomerOrders")">@T("Account.CustomerOrders")</a></li>
+	                }
+	                @if (Model.DisplayCustomerAddressesFooterItem)
+	                {
+	                    <li><a href="@Url.RouteUrl("CustomerAddresses")">@T("Account.CustomerAddresses")</a></li>
+	                }
+                    @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn2).ToList())
+                    {
+                        <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h3>@T("SevenSpikes.Themes.Alicante.Common.OurOffers")</h3>
+                <ul class="footer-menu">
+                    @if (Model.NewProductsEnabled && Model.DisplayNewProductsFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+                    }
+                    @if (Model.RecentlyViewedProductsEnabled && Model.DisplayRecentlyViewedProductsFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("RecentlyViewedProducts")">@T("Products.RecentlyViewedProducts")</a></li>
+                    }
+                    @if (Model.CompareProductsEnabled && Model.DisplayCompareProductsFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("CompareProducts")">@T("Products.Compare.List")</a></li>
+                    }
+                    @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn3).ToList())
+                    {
+                        <li><a href="@Url.RouteUrl("Topic", new { SeName = topic.SeName })">@topic.Name</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-lower">
+        <div class="center">
+            <div class="accepted-payment-methods">
+                <h3>@T("SevenSpikes.Themes.Alicante.Common.PaymentOptions")</h3>
+                <ul>
+                    <li class="method1"></li>
+                    <li class="method2"></li>
+                    <li class="method3"></li>
+                    <li class="method4"></li>
+                </ul>
+            </div>
+            
+            <div class="social-sharing">
+            <h3>@T("SevenSpikes.Themes.Alicante.Common.FollowUs")</h3>
+            <div class="footer-social">
+            <a href="YOUR_LINKEDIN_URL_HERE" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-linkedin"></i> LinkedIn
+        </a>
+    </div>
+</div>
+            
+            <div class="subscribe-to-newsletter">
+                @await Component.InvokeAsync("NewsletterBox")
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bottom">
+    <div class="center">
+        @if (!removeCopyright)
+        {
+            <div class="footer-powered-by">
+                Powered by <a href="@(OfficialSite.Main)" target="_blank" @(Model.IsHomePage ? string.Empty : "rel=nofollow")>nopCommerce</a>
+            </div>
+            @*Would you like to remove the "Powered by nopCommerce" link in the bottom of the footer? Find more info here https://www.nopcommerce.com/nopcommerce-copyright-removal-key*@
+        }
+        @if (!removeDesignedBy)
+        {
+            <div class="footer-designed-by">
+                Designed by <a href="https://www.nop-templates.com/" target="_blank">Nop-Templates.com</a>
+            </div>
+        }
+        <div class="footer-disclaimer">
+            @T("Content.CopyrightNotice", DateTime.Now.Year, Model.StoreName)
+        </div>
+        @if (Model.DisplayTaxShippingInfoFooter)
+        {
+            var inclTax = await workContext.GetTaxDisplayTypeAsync() == TaxDisplayType.IncludingTax;
+            <div class="footer-tax-shipping">
+                @T(inclTax ? "Footer.TaxShipping.InclTax" : "Footer.TaxShipping.ExclTax", Url.RouteUrl("Topic", new {SeName = await Html.GetTopicSeNameAsync("shippinginfo")}))
+            </div>
+        }
+        <div class="footer-store-theme">
+            @await Component.InvokeAsync("StoreThemeSelector")
+        </div>
+        @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.Footer, additionalData = Model })
+    </div>
+</div>

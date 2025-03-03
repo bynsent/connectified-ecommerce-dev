@@ -1,0 +1,34 @@
+﻿@using Nop.Core
+
+@inject IWorkContext workContext
+
+@{
+    var supportRtl = (await workContext.GetWorkingLanguageAsync()).Rtl;
+
+    if (supportRtl)
+    {
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/1280.rtl.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/1024.rtl.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/768.rtl.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/480.rtl.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/mobile.rtl.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/footable.rtl.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/styles.rtl.css");
+    }
+    else
+    {
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/1280.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/1024.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/768.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/480.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/mobile.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/footable.css");
+        NopHtml.AppendCssFileParts("~/Themes/Alicante/Content/css/styles.css");
+    }
+
+    <script src="~/Plugins/SevenSpikes.Core/Scripts/footable.min.js" asp-location="Footer"></script>
+    <script src="~/Plugins/SevenSpikes.Core/Scripts/sevenspikes.core.min.js" asp-location="Footer"></script>
+    <script src="~/Plugins/SevenSpikes.Core/Scripts/sevenspikes.theme.ex.min.js" asp-location="Footer"></script>
+
+    <script src="~/Themes/Alicante/Content/Scripts/Alicante.js" asp-location="Footer"></script>
+}
