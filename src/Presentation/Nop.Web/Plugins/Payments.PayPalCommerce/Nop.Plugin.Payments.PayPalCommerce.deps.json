@@ -4216,7 +4216,10 @@
           "System.Linq.Async": "5.1.0"
         },
         "runtime": {
-          "Nop.Core.dll": {}
+          "Nop.Core.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "4.5.0.0"
+          }
         },
         "compile": {
           "Nop.Core.dll": {}
@@ -4234,7 +4237,10 @@
           "linq2db": "3.6.0"
         },
         "runtime": {
-          "Nop.Data.dll": {}
+          "Nop.Data.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "4.5.0.0"
+          }
         },
         "compile": {
           "Nop.Data.dll": {}
@@ -4255,7 +4261,10 @@
           "iTextSharp.LGPLv2.Core": "1.7.0"
         },
         "runtime": {
-          "Nop.Services.dll": {}
+          "Nop.Services.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "4.5.0.0"
+          }
         },
         "compile": {
           "Nop.Services.dll": {}
@@ -4270,7 +4279,10 @@
           "Nop.Services": "4.5.0"
         },
         "runtime": {
-          "Nop.Unleash.dll": {}
+          "Nop.Unleash.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "compile": {
           "Nop.Unleash.dll": {}
@@ -4287,7 +4299,10 @@
           "Stripe.net": "39.84.0"
         },
         "runtime": {
-          "Nop.Web.dll": {}
+          "Nop.Web.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "4.5.0.0"
+          }
         },
         "compile": {
           "Nop.Web.dll": {}
@@ -4304,7 +4319,10 @@
           "WebMarkupMin.NUglify": "2.11.0"
         },
         "runtime": {
-          "Nop.Web.Framework.dll": {}
+          "Nop.Web.Framework.dll": {
+            "assemblyVersion": "4.5.0.0",
+            "fileVersion": "4.5.0.0"
+          }
         },
         "compile": {
           "Nop.Web.Framework.dll": {}
